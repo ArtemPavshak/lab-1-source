@@ -20,7 +20,7 @@ public class MyController {
 
 
     @GetMapping("/user")
-    @PreAuthorize("hasRole('clent_user')")
+    @PreAuthorize("hasRole('client_user')")
     public String helloUser() {
         return " <h1>hello user<h1>";
     }
