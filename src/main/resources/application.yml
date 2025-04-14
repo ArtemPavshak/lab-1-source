@@ -1,6 +1,11 @@
 spring:
   application:
     name: open-source
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: open-source-db
   security:
     oauth2:
       resourceserver:
