@@ -26,7 +26,8 @@ public class ItemService {
 
     @PostConstruct
     void init() {
-        items.add(new Item("1", "name1", "description"));
+       repository.deleteAll();
+        items.add(new Item( "name1", "description"));
         items.add(new Item("2", "name2", "description2"));
         items.add(new Item("3", "name3", "description3"));
         repository.saveAll(items);

@@ -22,12 +22,14 @@ public class AuditMetaData {
 
     @CreatedDate
     private LocalDateTime createdDate;
+
     @CreatedBy
     private String createdBy;
+
     @LastModifiedDate
     private LocalDateTime lastModifiedDate;
+
     @LastModifiedBy
     private String lastModifiedBy;
-
 
 }

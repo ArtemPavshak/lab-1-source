@@ -21,7 +21,7 @@ public class ItemRestController {
 
     private final ItemService service;
 
-    @GetMapping
+    @GetMapping("/")
     public List<Item> getItems() {
         return service.getAll();
     }
