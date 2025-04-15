@@ -25,11 +25,13 @@ public class ItemRestController {
     public List<Item> getItems() {
         return service.getAll();
     }
+
     @GetMapping("/{id}")
     public Item getOneItem(@PathVariable String id) {
         return service.getById(id);
     }
-      @DeleteMapping("/{id}")
+
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
          service.deleteById(id);
     }

@@ -25,7 +25,7 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtGra
 import java.util.Collection;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class SecurityBean {
 
     @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
