@@ -1,0 +1,87 @@
+george@george-Latitude-E6320:~/IdeaProjects/open-source$ docker ps
+CONTAINER ID   IMAGE                              COMMAND                  CREATED        STATUS          PORTS                                                   NAMES
+0fcf92329737   quay.io/keycloak/keycloak:24.0.2   "/opt/keycloak/bin/k…"   4 days ago     Up 21 minutes   8443/tcp, 0.0.0.0:9090->8080/tcp, [::]:9090->8080/tcp   keycloak-pzks
+2e9f21a33137   mongo-express                      "/sbin/tini -- /dock…"   6 months ago   Up 9 seconds    0.0.0.0:8081->8081/tcp, :::8081->8081/tcp               mongo-express
+george@george-Latitude-E6320:~/IdeaProjects/open-source$ docker exec -it 0fcf92329737 /bin/sh
+sh-5.1$ pwd
+/
+sh-5.1$ ls -l
+total 56
+dr-xr-xr-x   2 root root 4096 Aug  9  2021 afs
+lrwxrwxrwx   1 root root    7 Aug  9  2021 bin -> usr/bin
+dr-xr-xr-x   2 root root 4096 Aug  9  2021 boot
+drwxr-xr-x   5 root root  340 Apr 13 15:06 dev
+drwxr-xr-x   1 root root 4096 Apr  9 15:50 etc
+drwxr-xr-x   2 root root 4096 Aug  9  2021 home
+lrwxrwxrwx   1 root root    7 Aug  9  2021 lib -> usr/lib
+lrwxrwxrwx   1 root root    9 Aug  9  2021 lib64 -> usr/lib64
+drwxr-xr-x   2 root root 4096 Aug  9  2021 media
+drwxr-xr-x   2 root root 4096 Aug  9  2021 mnt
+drwxr-xr-x   1 root root 4096 Mar 24  2024 opt
+dr-xr-xr-x 384 root root    0 Apr 13 15:06 proc
+dr-xr-x---   3 root root 4096 Feb 29  2024 root
+drwxr-xr-x   4 root root 4096 Feb 29  2024 run
+lrwxrwxrwx   1 root root    8 Aug  9  2021 sbin -> usr/sbin
+drwxr-xr-x   2 root root 4096 Aug  9  2021 srv
+dr-xr-xr-x  13 root root    0 Apr 13 15:06 sys
+drwxrwxrwt   1 root root 4096 Apr  9 15:50 tmp
+drwxr-xr-x   1 root root 4096 Mar 24  2024 usr
+drwxr-xr-x   1 root root 4096 Mar 24  2024 var
+sh-5.1$ cd opt
+sh-5.1$ ls -l
+total 8
+drwxr-xr-x 1 keycloak root 4096 Apr  9 15:50 keycloak
+sh-5.1$ cd keycloak/
+sh-5.1$ ls -l
+total 48
+drwxrwxr-x 3 keycloak root  4096 Mar 24  2024 bin
+drwxrwxr-x 3 keycloak root  4096 Mar 24  2024 conf
+drwxrwxr-x 1 keycloak root  4096 Apr  9 15:50 data
+drwxrwxr-x 1 keycloak root  4096 Mar 24  2024 lib
+-rw-rw-r-- 1 keycloak root 11358 Mar 24  2024 LICENSE.txt
+drwxrwxr-x 2 keycloak root  4096 Mar 24  2024 providers
+-rw-rw-r-- 1 keycloak root   492 Mar 24  2024 README.md
+drwxrwxr-x 2 keycloak root  4096 Mar 24  2024 themes
+-rw-rw-r-- 1 keycloak root    26 Mar 24  2024 version.txt
+sh-5.1$ cd bin/
+sh-5.1$ ls -l
+total 40
+drwxrwxr-x 3 keycloak root 4096 Mar 24  2024 client
+-rwxrwxr-x 1 keycloak root 1009 Mar 24  2024 federation-sssd-setup.sh
+-rw-rw-r-- 1 keycloak root  832 Mar 24  2024 kcadm.bat
+-rwxrwxr-x 1 keycloak root  822 Mar 24  2024 kcadm.sh
+-rwxrwxr-x 1 keycloak root 6684 Mar 24  2024 kc.bat
+-rw-rw-r-- 1 keycloak root  853 Mar 24  2024 kcreg.bat
+-rwxrwxr-x 1 keycloak root  842 Mar 24  2024 kcreg.sh
+-rwxrwxr-x 1 keycloak root 5968 Mar 24  2024 kc.sh
+sh-5.1$ ./kc.sh export --file version01 --realm Open
+2025-04-13 15:38:49,711 INFO  [org.keycloak.quarkus.runtime.hostname.DefaultHostnameProvider] (main) Hostname settings: Base URL: <unset>, Hostname: <request>, Strict HTTPS: false, Path: <request>, Strict BackChannel: false, Admin URL: <unset>, Admin: <request>, Port: -1, Proxied: false
+2025-04-13 15:38:50,152 WARN  [org.infinispan.CONFIG] (keycloak-cache-init) ISPN000569: Unable to persist Infinispan internal caches as no global state enabled
+2025-04-13 15:38:50,251 INFO  [org.infinispan.CONTAINER] (keycloak-cache-init) ISPN000556: Starting user marshaller 'org.infinispan.jboss.marshalling.core.JBossUserMarshaller'
+2025-04-13 15:38:54,372 WARN  [io.quarkus.agroal.runtime.DataSources] (JPA Startup Thread) Datasource <default> enables XA but transaction recovery is not enabled. Please enable transaction recovery by setting quarkus.transaction-manager.enable-recovery=true, otherwise data may be lost if the application is terminated abruptly
+2025-04-13 15:38:56,451 INFO  [org.keycloak.broker.provider.AbstractIdentityProviderMapper] (main) Registering class org.keycloak.broker.provider.mappersync.ConfigSyncEventListener
+2025-04-13 15:38:56,502 INFO  [org.keycloak.connections.infinispan.DefaultInfinispanConnectionProviderFactory] (main) Node name: node_602800, Site name: null
+2025-04-13 15:38:58,592 INFO  [org.keycloak.services] (main) KC-SERVICES0034: Export of realm 'Open' requested.
+2025-04-13 15:38:58,593 INFO  [org.keycloak.exportimport.singlefile.SingleFileExportProvider] (main) Exporting realm 'Open' into file /opt/keycloak/bin/version01
+2025-04-13 15:39:00,318 INFO  [org.keycloak.services] (main) KC-SERVICES0035: Export finished successfully
+2025-04-13 15:39:00,402 INFO  [io.quarkus] (main) Keycloak 24.0.2 on JVM (powered by Quarkus 3.8.3) started in 12.936s. Listening on:
+2025-04-13 15:39:00,403 INFO  [io.quarkus] (main) Profile import_export activated.
+2025-04-13 15:39:00,403 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, jdbc-h2, keycloak, logging-gelf, narayana-jta, reactive-routes, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, vertx]
+2025-04-13 15:39:00,568 INFO  [io.quarkus] (main) Keycloak stopped in 0.160s
+sh-5.1$ ls -l
+total 112
+drwxrwxr-x 3 keycloak root  4096 Mar 24  2024 client
+-rwxrwxr-x 1 keycloak root  1009 Mar 24  2024 federation-sssd-setup.sh
+-rw-rw-r-- 1 keycloak root   832 Mar 24  2024 kcadm.bat
+-rwxrwxr-x 1 keycloak root   822 Mar 24  2024 kcadm.sh
+-rwxrwxr-x 1 keycloak root  6684 Mar 24  2024 kc.bat
+-rw-rw-r-- 1 keycloak root   853 Mar 24  2024 kcreg.bat
+-rwxrwxr-x 1 keycloak root   842 Mar 24  2024 kcreg.sh
+-rwxrwxr-x 1 keycloak root  5968 Mar 24  2024 kc.sh
+-rw-r--r-- 1 keycloak root 72237 Apr 13 15:39 version01
+sh-5.1$ exit
+exit
+george@george-Latitude-E6320:~/IdeaProjects/open-source$ docker cp 0fcf92329737:/opt/keycloak/bin/version01 ./keycloak/realm
+Successfully copied 74.2kB to /home/george/IdeaProjects/open-source/keycloak/realm
+george@george-Latitude-E6320:~/IdeaProjects/open-source$
+
