@@ -1,14 +1,5 @@
 package edu.pzks.opensource;
 
-
-/*
-  @author   george
-  @project   open-source
-  @class  MyController
-  @version  1.0.0 
-  @since 26.02.25 - 12.36
-*/
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
