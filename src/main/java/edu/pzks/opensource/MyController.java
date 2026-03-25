@@ -2,7 +2,7 @@ package edu.pzks.opensource;
 
 /*
   @author   pavshak
-  @project   open-source
+  @project  lab-1-source
   @class  MyController
   @version  1.0.0
   @since 25.03.25 - 19:37
